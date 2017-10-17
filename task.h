@@ -3,7 +3,7 @@
 class task{
 public:
     	task(int pinnumber){
-		(this->pin) = init_gpio(pinnumber);
+		*(this->pin) = init_gpio(pinnumber);
 		this->pinstatus = 0;
 	};
 	
@@ -18,5 +18,5 @@ public:
 	};
 private:
     	FILE *pin;
-	bool pinstatus;
+	bool pinstatus; //have a pinstatus variable as to continuously switch between on and off
 };

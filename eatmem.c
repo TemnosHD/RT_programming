@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		tmp[i] = malloc(1024*1024);
 		if(!tmp[i]){
 			printf("Cannot allocate memory\n");
-			//exit(0);
+			//exit(0); //do not stop the program, but keep the memory allocated
 			break;
 		}
 
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 	}
 	int n;
 	while(1){
-		for(n = 0; n < i; n++){
+		for(n = 0; n < i; n++){ //keep writing to the memory, so different pages are swapped out
 			printf("writing at MiB %d\n", n);
 			for(j=0; j < 1024*1024; j+=1024){
 				tmp[n][j] = n%2;

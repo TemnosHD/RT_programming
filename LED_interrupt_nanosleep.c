@@ -24,10 +24,11 @@ int main()
 	unsigned int delay = 1000*1000*1000/60; // Note: Delay in ns
 	FILE *pin0 = init_gpio(17);
 
-	clock_gettime(CLOCK_MONOTONIC, &ts); //get the current time and write this into the struct 
+	clock_gettime(CLOCK_MONOTONIC, &ts); //get the current time and write this into the struct
+	//CLOCK_MONOTONIC declares the type of clock that is used.
 
 	while(1){
-		sleep_until(&ts, delay/2);
+		sleep_until(&ts, delay/2); //Have the delay be half as long, so the LED blinks at the full frequency instead of half the frequency
 		setiopin(pin0,0);
 		sleep_until(&ts, delay/2);
 		setiopin(pin0,1);

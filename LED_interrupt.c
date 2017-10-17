@@ -2,7 +2,7 @@
 
 int main()
 {
-	unsigned int delay = 1000000/60; // Note: Delay in us
+	unsigned int delay = 1000*1000/60; // Note: Delay in us
 	FILE *pin0 = init_gpio(17);
 
 	while(1){
